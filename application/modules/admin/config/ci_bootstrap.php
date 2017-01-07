@@ -121,16 +121,16 @@ $config['ci_bootstrap'] = array(
 				'Galon'		=> 'laporan/galon',
 			)
 		),		
-		'laporanuang' => array(
+		'lapkeuangan' => array(
 			'name'		=> 'Laporan Keuangan',
-			'url'		=> 'laporanuang',
+			'url'		=> 'lapkeuangan',
 			'icon'		=> 'fa fa-usd',
 			'children'  => array(
-				'Penjualan'			=> 'laporanuang/penjualan',
-				'Hutang'			=> 'laporanuang/hutang',
-				'Piutang'			=> 'laporanuang/piutang',
-				'Laba Rugi'		=> 'laporanuang/retur',
-				'Neraca'		=> 'laporanuang/neraca'
+				'Penjualan'			=> 'lapkeuangan/penjualan',
+				'Hutang'			=> 'lapkeuangan/hutang',
+				'Piutang'			=> 'lapkeuangan/piutang',
+				'Laba Rugi'		=> 'lapkeuangan/labarugi',
+				'Neraca'		=> 'lapkeuangan/neraca'
 			)
 		),		
 		'user' => array(
