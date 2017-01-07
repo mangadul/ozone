@@ -64,12 +64,12 @@ $config['ci_bootstrap'] = array(
 			'url'		=> '',
 			'icon'		=> 'fa fa-home',
 		),
-		'masterdata' => array(
+		'master' => array(
 			'name'		=> 'Master Data',
-			'url'		=> 'masterdata',
+			'url'		=> 'master',
 			'icon'		=> 'fa fa-database',
 			'children'  => array(
-				'Pelanggan'			=> 'master',
+				'Pelanggan'			=> 'master/pelanggan',
 				'Barang'		=> 'master/barang',
 				'Marketing'		=> 'master/marketing',
 				'Kupon / Diskon'		=> 'master/diskon',
@@ -87,8 +87,8 @@ $config['ci_bootstrap'] = array(
 				'Stok Gudang'			=> 'gudang/stok',
 				'Pengeluaran Barang'			=> 'gudang/pengeluaran',
 				'Retur ke Vendor'		=> 'gudang/retur',
-				'Stok Opname'	=> 'master/stokopname',
-				'Adjustment'	=> 'master/adjustment',				
+				'Stok Opname'	=> 'gudang/stokopname',
+				'Adjustment'	=> 'gudang/penyesuaian',				
 			)
 		),				
 		'produksi' => array(
