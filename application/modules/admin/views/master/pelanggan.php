@@ -4,7 +4,7 @@
 	</div>
 	<div class="box-body">
 		<p>
-			<button class="btn btn-default" id="btnPelanggan">Tambah Data Pelanggan</button>
+			<button class="btn btn-primary" id="btnPelanggan">Tambah Data Pelanggan</button>
 		</p>	
 
 
@@ -15,6 +15,8 @@
 -->
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-iso.css');?>" /> 
+<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" />
+
 
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
@@ -40,7 +42,13 @@
         *
        </span>
       </label>
-      <input class="form-control" id="nama_pelanggan" name="nama_pelanggan" type="text"/>
+      <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa fa-bars">
+        </i>
+       </div>
+	      <input class="form-control" id="nama_pelanggan" name="nama_pelanggan" type="text"/>
+      </div>      
      </div>
      <div class="form-group ">
       <label class="control-label requiredField" for="alamatp">
@@ -49,7 +57,7 @@
         *
        </span>
       </label>
-      <textarea class="form-control" cols="40" id="alamatp" name="alamatp" rows="10"></textarea>
+	      <input class="form-control" id="alamatp" name="alamatp" type="text"/>
      </div>
      <div class="form-group ">
       <label class="control-label " for="notelpp">
@@ -107,7 +115,7 @@
      </div>
      <div class="form-group">
       <div>
-       <button class="btn btn-primary " name="submit" type="submit">
+       <button class="btn btn-primary" name="submit" type="submit">
         Submit
        </button>
       </div>
@@ -145,32 +153,44 @@ $(document).ready(function() {
 	                        message: 'This field is required'
 	                    }
 	                }
-	            }
+	            },
+	            alamatp: {
+	                validators: {
+	                    notEmpty: {
+	                        message: 'This field is required'
+	                    }
+	                }
+	            },
+	            kodeposp: {
+	                validators: {
+	                    integer: {
+		                	min: 5,
+		                	max: 5,
+	                        message: 'The value is not number'
+	                    }
+	                }
+	            }	            
 	        }
         })
         .on('success.form.fv', function(e) {
-            // Prevent form submission
             e.preventDefault();
             var $form = $(e.target),                  
                 bv    = $form.data('formValidation'); 
-            // Use Ajax to submit form data
             $.post($form.attr('action'), $form.serialize(), function(result) {
                 $form.parents('.bootbox').modal('hide');
             }, 'json');
         });
 
-    // Login button click handler
     $('#btnPelanggan').on('click', function() {
         bootbox
             .dialog({
-                title: 'Data Pelangan',
+                title: 'Data Pelanggan',
                 message: $('#pelanggan'),
                 show: false 
             })
             .on('shown.bs.modal', function() {
-                $('#pelanggan')
-                    .show()                           
-                    .formValidation('resetForm', true); 
+                $('#pelanggan').show();                           
+                $('#frmPelanggan').formValidation('resetForm', true); 
             })
             .on('hide.bs.modal', function(e) {
                 $('#pelanggan').hide().appendTo('body');
@@ -181,8 +201,10 @@ $(document).ready(function() {
 });	
 </script>
 
-<!-- Include bootbox.js -->
+<!-- https://formden.com/form-builder/ -->
 <script src="<?php echo base_url('assets/js/bootbox.min.js');?>"></script>
 <script src="<?php echo base_url('assets/js/formValidation.js');?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.scrollUp.min.js');?>"></script>
 <script src="<?php echo base_url('assets/js/scroll-fix.js');?>"></script>
+<script src="<?php echo base_url('assets/js/numeric.js');?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.number.min.js');?>"></script>
