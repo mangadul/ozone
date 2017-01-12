@@ -20,7 +20,11 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="<?php echo base_url('admin/login/index');?>" method="post" class="login-form">
+                            <?php
+                            $attributes = array('class' => 'login-form',
+                                    'role' => 'form');
+                            echo form_open('admin/login/index', $attributes);
+                            ?>                            
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
