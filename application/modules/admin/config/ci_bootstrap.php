@@ -75,7 +75,6 @@ $config['ci_bootstrap'] = array(
 				'Kupon / Diskon'		=> 'master/diskon',
 				'Pemasok'		=> 'master/pemasok',
 				'Karyawan'		=> 'master/karyawan',
-				'Stok Awal'	=> 'master/stokawal',
 			)
 		),		
 		'gudang' => array(
@@ -83,6 +82,7 @@ $config['ci_bootstrap'] = array(
 			'url'		=> 'gudang',
 			'icon'		=> 'fa fa-list-alt',
 			'children'  => array(
+				'Stok Awal'	=> 'gudang/stokawal',
 				'Penerimaan Barang'			=> 'gudang/penerimaan',
 				'Stok Gudang'			=> 'gudang/stok',
 				'Pengeluaran Barang'			=> 'gudang/pengeluaran',
@@ -96,6 +96,8 @@ $config['ci_bootstrap'] = array(
 			'url'		=> 'produksi',
 			'icon'		=> 'fa fa-th',
 			'children'  => array(
+				'Order ke Gudang' => 'produksi/order',
+				'Stok Barang' => 'produksi/stok',
 				'Barang Produksi' => 'produksi/barang',
 			)
 		),				

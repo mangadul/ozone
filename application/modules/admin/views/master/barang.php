@@ -3,9 +3,11 @@
 		<h3 class="box-title">Barang</h3>
 	</div>
 	<div class="box-body">
+  <!--
 		<p>
 			<button class="btn btn-primary" id="btnBarang">Tambah Data Barang</button>
 		</p>	
+    -->
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-iso.css');?>" /> 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" />
@@ -13,8 +15,10 @@
 <!-- Inline CSS based on choices in "Settings" tab -->
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
-<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-<div id="barang" class="bootstrap-iso" style="display: none;">
+<!-- HTML Form (wrapped in a .bootstrap-iso div) 
+style="display: none;"
+-->
+<div id="barang" class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-12 col-sm-12 col-xs-12">

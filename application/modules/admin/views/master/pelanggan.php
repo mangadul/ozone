@@ -27,6 +27,15 @@
 
 	<form id="frmPelanggan" method="post" action="<?php echo base_url('admin/master/pelanggan/tambah');?>" class="form-horizontal">
      <div class="form-group ">
+      <label class="control-label requiredField" for="nama_toko">
+       Nama Toko
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="nama_toko" name="nama_toko" type="text"/>
+     </div>  
+     <div class="form-group ">
       <label class="control-label requiredField" for="kode_pelanggan">
        Kode Pelanggan
        <span class="asteriskField">
@@ -140,6 +149,13 @@ $(document).ready(function() {
 	            validating: 'glyphicon glyphicon-refresh'
 	        },
 	        fields: {
+              nama_toko: {
+                  validators: {
+                      notEmpty: {
+                          message: 'This field is required'
+                      }
+                  }
+              },
 	            kode_pelanggan: {
 	                validators: {
 	                    notEmpty: {
@@ -161,6 +177,34 @@ $(document).ready(function() {
 	                    }
 	                }
 	            },
+              kontakp: {
+                  validators: {
+                      notEmpty: {
+                          message: 'This field is required'
+                      }
+                  }
+              },
+              nokontakp: {
+                  validators: {
+                      notEmpty: {
+                          message: 'This field is required'
+                      }
+                  }
+              },
+              kotap: {
+                  validators: {
+                      notEmpty: {
+                          message: 'This field is required'
+                      }
+                  }
+              },
+              provp: {
+                  validators: {
+                      notEmpty: {
+                          message: 'This field is required'
+                      }
+                  }
+              },
 	            kodeposp: {
 	                validators: {
 	                    integer: {
