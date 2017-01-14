@@ -18,6 +18,24 @@ class Master extends Admin_Controller {
 		$this->render('master/pelanggan');		
 	}
 
+	public function tambah_pelanggan()
+	{
+		$post = $this->input->post();
+		if($post){
+			try {
+				if($this->db->insert('m_pelanggan', $post))
+				{
+					echo json_encode("Data berhasil ditambah");				
+				} else {
+					throw new Exception($this->db->error());
+				}				
+			} catch (Exception $e) {
+				log_message( 'error', $e->getMessage( ) . ' in ' . $e->getFile() . ':' . $e->getLine());
+				echo json_encode($e->getMessage());
+			}
+		}
+	}
+
 	public function marketing() {
 		$this->render('master/marketing');		
 	}

@@ -22,7 +22,13 @@ style="display: none;"
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-12 col-sm-12 col-xs-12">
-    <form id="frmBarang" method="post" action="">
+
+<?php
+$attributes = array('class' => 'form-horizontal',
+                'id' => 'frmBarang');
+echo form_open('admin/master/barang/tambah', $attributes);
+?>                            
+
      <div class="form-group ">
       <label class="control-label requiredField" for="kode_barang">
        Kode Barang

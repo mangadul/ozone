@@ -25,7 +25,11 @@
   <div class="row">
    <div class="col-md-12 col-sm-12 col-xs-12">
 
-	<form id="frmPelanggan" method="post" action="<?php echo base_url('admin/master/pelanggan/tambah');?>" class="form-horizontal">
+<?php
+$attributes = array('class' => 'form-horizontal',
+                'id' => 'frmPelanggan');
+echo form_open('admin/master/tambah_pelanggan', $attributes);
+?>                            
      <div class="form-group ">
       <label class="control-label requiredField" for="nama_toko">
        Nama Toko
@@ -221,7 +225,10 @@ $(document).ready(function() {
             var $form = $(e.target),                  
                 bv    = $form.data('formValidation'); 
             $.post($form.attr('action'), $form.serialize(), function(result) {
-                $form.parents('.bootbox').modal('hide');
+                bootbox.alert(result, function(){ 
+                  console.log('This was logged in the callback!'); 
+                  $form.parents('.bootbox').modal('hide');
+                });                
             }, 'json');
         });
 
@@ -233,8 +240,9 @@ $(document).ready(function() {
                 show: false 
             })
             .on('shown.bs.modal', function() {
-                $('#pelanggan').show();                           
-                $('#frmPelanggan').formValidation('resetForm', true); 
+                $('#pelanggan').show(function(){
+                  $('#frmPelanggan').formValidation('resetForm', true);                   
+                });                           
             })
             .on('hide.bs.modal', function(e) {
                 $('#pelanggan').hide().appendTo('body');
